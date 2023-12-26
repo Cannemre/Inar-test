@@ -11,42 +11,42 @@ class AgeRestrictionValidatorTest {
     @Test
     void ageJustBelowMinimum() {
         boolean result = ageValidator.isEligible(17);
-        assertEquals(false, result);
+        assertFalse(result);
     }
     @Test
     void ageAtMinimumBoundary() {
         boolean result = ageValidator.isEligible(18);
-        assertEquals(true, result);
+        assertTrue(result);
     }
     @Test
     void ageJustAboveMinimum() {
         boolean result = ageValidator.isEligible(19);
-        assertEquals(true, result);
+        assertTrue(result);
     }
     @Test
     void ageJustBelowMaximum() {
         boolean result = ageValidator.isEligible(64);
-        assertEquals(true, result);
+        assertTrue(result);
     }
     @Test
     void ageAtMaximumBoundary() {
         boolean result = ageValidator.isEligible(65);
-        assertEquals(true, result);
+        assertTrue(result);
     }
     @Test
     void ageJustAboveMaximum() {
         boolean result = ageValidator.isEligible(66);
-        assertEquals(false, result);
+        assertFalse(result);
     }
     @Test
     void extremeLowAge() {
         boolean result = ageValidator.isEligible(0);
-        assertEquals(false, result);
+        assertFalse(result);
     }
     @Test
     void extremeHighAge() {
         ageValidator.isEligible(100);
         boolean result = ageValidator.isEligible(100);
-        assertEquals(false, result);
+        assertFalse(result);
     }
 }
